@@ -5,7 +5,8 @@
   "scripts": {
     "test": "test",
     "postinstall" : "bower install",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "api": "node server/api.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,10 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-sass": "~0.15.0",
     "connect": "~3.3.1",
-    "serve-static": "~1.7.1"
+    "serve-static": "~1.7.1",
+    "express": "~4.10.0",
+    "body-parser": "~1.0.1",
+    "mongodb": "~1.4.19",
+    "mongoskin": "~1.4.1"
   }
 }
