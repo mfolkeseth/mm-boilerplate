@@ -3,8 +3,8 @@
 angular.module('mmApp.home', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view1', {
-        templateUrl: 'view1/view1.html',
+    $routeProvider.when('/home', {
+        templateUrl: 'components/home/home.html',
         controller: 'HomeController'
     });
 }])
