@@ -2,3 +2,6 @@ node_modules/
 build/
 compile/
 vendor/
+
+.DS_Store
+npm-debug*
