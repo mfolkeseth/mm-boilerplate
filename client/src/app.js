@@ -4,6 +4,7 @@
 angular.module('mmApp', [
     'ngRoute',
     'mmApp.home',
+    'mmApp.homeService',
     'mmApp.about'
 ])
 .config(['$routeProvider', function($routeProvider) {
