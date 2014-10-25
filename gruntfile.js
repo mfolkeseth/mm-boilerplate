@@ -19,6 +19,7 @@ module.exports = function(grunt){
     vendor_files: {
       js: [
         'vendor/angular/angular.js',
+        'vendor/angular-route/angular-route.js',
         'vendor/foundation/js/foundation.js',
         'vendor/jquery/dist/jquery.js'
       ]
