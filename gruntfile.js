@@ -8,7 +8,11 @@ module.exports = function(grunt){
 
   var config = {
     client_dir: 'client/',
-    build_dir: 'client/build/'
+    build_dir: 'client/build/',
+
+    app: {
+      scss: 'client/src/app.scss'
+    }
   };
 
   grunt.initConfig({
@@ -21,15 +25,29 @@ module.exports = function(grunt){
     copy: {
       html: {
         src: '<%= config.client_dir %>index.html',
-        dest: '<%= config.build_dir %>'
+        dest: '<%= config.build_dir %>',
+        flatten: true
       }
+    },
+
+    sass: {
+      includePaths: ['client/src/assets/settings'],
+      dev: {
+        outputStyle: 'nested',
+        files: {
+          '<%= config.build_dir %>test.css' : '<%= config.app.scss %>'
+        }
+      }
+      /*build: {
+
+      }*/
     }
 
 
 
   });
 
-  grunt.registerTask('build', ['clean', 'copy:html']);
+  grunt.registerTask('build', ['clean', 'sass:dev', 'copy:html']);
 
 
   grunt.registerTask('default', function(){
