@@ -5,6 +5,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-html-build');
 
 
   var config = {
@@ -33,15 +34,42 @@ module.exports = function(grunt){
 
     clean: ['<%= config.build_dir %>'],
 
+    htmlbuild:{
+      dev: {
+        src: 'client/src/index.html',
+        dest: 'client/build/',
+        options: {
+          beautify: true,
+          scripts: {
+            bundle: [
+              '<%= config.build_dir %>vendor/angular.js',
+              '<%= config.build_dir %>vendor/angular-route.js',
+              '<%= config.build_dir %>vendor/jquery.js',
+              '<%= config.build_dir %>vendor/foundation.js',
+              '<%= config.build_dir %>app.js',
+              'client/build/components/**/*.js'
+            ]
+          },
+          styles: {
+            bundle: [
+              'client/build/mm-boilerplate.css'
+            ]
+          }
+        }
+      }
+    },
+
+
+
     copy: {
       html: {
         files: [
-          {
-            expand: true,
-            dest: '<%= config.build_dir %>',
-            src: '<%= config.client_dir %>index.html',
-            flatten: true
-          },
+          // {
+          //   expand: true,
+          //   dest: '<%= config.build_dir %>',
+          //   src: '<%= config.client_dir %>index.html',
+          //   flatten: true
+          // },
           {
             expand: true,
             cwd: '<%= config.client_dir %>/src/',
@@ -112,7 +140,7 @@ module.exports = function(grunt){
   });
 
   grunt.registerTask('build', ['clean', 'sass:dev', 'copy:vendor_js',
-    'copy:app_js', 'copy:html']);
+    'copy:app_js', 'copy:html', 'htmlbuild:dev']);
 
 
   grunt.registerTask('default', ['build', 'watch']);
