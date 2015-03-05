@@ -41,11 +41,10 @@ module.exports = function(grunt){
         options: {
           beautify: true,
           scripts: {
-            bundle: [
-              '<%= config.build_dir %>vendor/angular.js',
-              '<%= config.build_dir %>vendor/angular-route.js',
-              '<%= config.build_dir %>vendor/jquery.js',
-              '<%= config.build_dir %>app.js',
+            'app_js': [
+              '<%= config.vendor_files.js %>'
+            ],
+            'vendor_js': [
               'client/build/components/**/*.js'
             ]
           },
