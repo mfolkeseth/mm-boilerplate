@@ -19,10 +19,10 @@ module.exports = function(grunt){
 
     vendor_files: {
       js: [
-        'vendor/angular/angular.js',
-        'vendor/angular-route/angular-route.js',
-        'vendor/foundation/js/foundation.js',
-        'vendor/jquery/dist/jquery.js'
+        'bower_components/angular/angular.js',
+        'bower_components/angular-route/angular-route.js',
+        'bower_components/bootstrap-sass/assets/javascript/bootstrap.js',
+        'bower_components/jquery/dist/jquery.js'
       ]
     }
   };
@@ -45,7 +45,6 @@ module.exports = function(grunt){
               '<%= config.build_dir %>vendor/angular.js',
               '<%= config.build_dir %>vendor/angular-route.js',
               '<%= config.build_dir %>vendor/jquery.js',
-              '<%= config.build_dir %>vendor/foundation.js',
               '<%= config.build_dir %>app.js',
               'client/build/components/**/*.js'
             ]
@@ -112,26 +111,15 @@ module.exports = function(grunt){
     watch: {
       scss: {
         files: '<%= config.client_dir %>**/*.scss',
-        tasks: ['sass:dev'],
-        options: {
-          livereload: true
-        }
+        tasks: ['sass:dev']
       },
       js: {
         files: '<%= config.client_dir %>**/*.js',
-        tasks: ['copy:app_js'],
-        options: {
-          options: {
-            livereload: true
-          }
-        }
+        tasks: ['copy:app_js']
       },
       html: {
         files: '<%= config.client_dir %>**/*.html',
-        tasks: ['copy:html'],
-        options: {
-          livereload: true
-        }
+        tasks: ['copy:html']
       }
     }
 

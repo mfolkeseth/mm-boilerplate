@@ -2,7 +2,10 @@
 @import "assets/scss/settings";
 
 // Import foundation
-@import "../../vendor/foundation/scss/foundation";
+//@import "../../bower_components/foundation/scss/foundation";
+
+// Import bootstrap
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 // Import custom scss code
 @import "assets/scss/custom";
