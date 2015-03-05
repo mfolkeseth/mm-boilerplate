@@ -2,6 +2,7 @@ node_modules/
 build/
 compile/
 vendor/
+bower_components/
 
 .DS_Store
 npm-debug*
